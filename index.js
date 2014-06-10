@@ -40,10 +40,6 @@ var createFractionalDelay = function createFractionalDelay(sampleRate, optMaxDel
       writable: true,
       value: 0
     },
-    fracXi2: {
-      writable: true,
-      value: 0
-    },
     fracYi1: {
       writable: true,
       value: 0
@@ -233,7 +229,6 @@ var createFractionalDelay = function createFractionalDelay(sampleRate, optMaxDel
 
         var x, y;
         var xi1 = this.fracXi1;
-        var xi2 = this.fracXi2;
         var yi1 = this.fracYi1;
 
         for(var i = 0; i<inputBuffer.length; i = i + 1){
@@ -252,7 +247,6 @@ var createFractionalDelay = function createFractionalDelay(sampleRate, optMaxDel
         }
         // Save memories
         this.fracXi1 = xi1;
-        this.fracXi2 = xi2;
         this.fracYi1 = yi1;
 
         return outputBuffer;
