@@ -81,8 +81,8 @@ The `fractionalDelay` object exposes the following API:
 Method | Description
 --- | ---
 `fractionalDelay.setDelay(delayTime)` | Set the delay time.
-`fractionalDelay.process(inputBuffer)` | Process the data for an input buffer.
 `fractionalDelay.getDelay()` | Get the delay time.
+`fractionalDelay.process(inputBuffer)` | Process the data for an input buffer.
 
 
 ## Tests
