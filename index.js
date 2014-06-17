@@ -24,7 +24,7 @@ var createFractionalDelay = function createFractionalDelay(sampleRate, optMaxDel
       writable: true,
       value: 0
     },
-    maxdelayTime: {
+    maxDelayTime: {
       writable: true,
       value: 1
     },
