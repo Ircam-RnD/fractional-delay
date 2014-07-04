@@ -3,11 +3,11 @@
 <head>
     <title>fractional-delay example</title>
     <meta charset="utf-8"/>
-    <script src="/fractional-delay.min.js"></script>
+    <script src="../fractional-delay.min.js"></script>
     <!-- https://github.com/Ircam-RnD/buffer-loader  We need a way to load and decode the HRTF files, so we use this lib -->
-    <script src="/examples/js/buffer-loader.js"></script>
+    <script src="./js/buffer-loader.js"></script>
     <!-- https://github.com/Ircam-RnD/player - We use this player to play a sound -->
-    <script src="/examples/js/player.js"></script>
+    <script src="./js/player.js"></script>
 </head>
 <script>
   // We need an audio context
@@ -29,7 +29,7 @@
 
 
   // Load player file
-  bufferLoader.load('/examples/snd/breakbeat.wav').then(function(buffer){
+  bufferLoader.load('./snd/breakbeat.wav').then(function(buffer){
     player.setBuffer(buffer);
     player.enableLoop(true);
     player.start();
