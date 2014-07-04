@@ -1,4 +1,4 @@
-# Fractional Delay library
+## Fractional Delay library
 
 > The Fractional Delay is a JavaScript library that implements a delay with a fractional delay.
 
@@ -18,7 +18,12 @@ The ▲ fractional delay is implemented as: y[n] = μ·x[n] + x[n - 1] - μ·y[n
 
 ```
 
-## Example
+
+###Demo
+
+A woring demo for this module can be found [here](https://ircam-rnd.github.io/fractional-delay/)
+
+### Usage
 
 This library can be used, for instance, inside the Web Audio API:
 
@@ -74,7 +79,7 @@ This library can be used, for instance, inside the Web Audio API:
   
 ```
 
-## API
+### API
 
 The `fractionalDelay` object exposes the following API:
 
@@ -83,29 +88,6 @@ Method | Description
 `fractionalDelay.setDelay(delayTime)` | Set the delay time.
 `fractionalDelay.getDelay()` | Get the delay time.
 `fractionalDelay.process(inputBuffer)` | Process the data for an input buffer.
-
-
-## Tests
-
-If grunt is not installed
-
-```bash
-$ npm install -g grunt-cli
-```
-
-Install all depencies in the module folder
-
-```bash
-$ npm install
-```
-
-Run the server on 9001 port (you can change the port in the Grunfile.js)
-
-```bash
-$ grunt test
-```
-
-Run the test via the web browser on `http://localhost:9001/tests`
 
 ## License
 
