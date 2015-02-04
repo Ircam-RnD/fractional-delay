@@ -1,32 +1,27 @@
 {
   "name": "fractional-delay",
-  "exports": "createFractionalDelay",
+  "exports": "FractionalDelay",
   "version": "0.1.0",
   "description": "The Fractional Delay is a JavaScript library that implements a delay with a fractional delay",
-  "main": "index.js",
+  "main": "fractional-delay.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arnau Julià <arnau.julia@gmail.com>",
   "license": "BSD-3",
   "repository": {
-  	"type" : "git", 
+  	"type" : "git",
   	"url" : "https://github.com/Ircam-RnD/fractional-delay"
   },
   "devDependencies": {
-    "browserify": "~3.32.0",
-    "mocha": "~1.17.1",
-    "chai": "~1.9.0",
-    "blanket": "~1.1.6",
-    "snd-dep": "git+https://github.com/vectorsize/snd-dep.git#master",
-    "gulp": "~3.8.2",
-    "gulp-uglify": "~0.3",
-    "vinyl-source-stream": "~0.1.1",
-    "gulp-connect": "~2.0.5",
-    "gulp-streamify": "~0.0.5",
-    "gulp-verb": "0.2.3",
-    "gulp-gh-pages" : "0.3.3"
   },
   "dependencies": {
+  },
+  "browserify": {
+    "transforms": ["es6ify"]
+  },
+  "scripts": {
+    "bundle": "browserify fractional-delay.es6.js > fractional-delay.js -s 'FractionalDelay' -d -t es6ify",
+    "watch": "nodemon -w fractional-delay.es6.js -x npm run bundle"
   }
 }
