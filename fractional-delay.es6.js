@@ -18,23 +18,20 @@ class FractionalDelay {
      */
     constructor(sampleRate, optMaxDelayTime) {
         // Properties with default values
-        this.delayTime = 0
-        this.maxDelayTime = 1
-        this.posRead = 0
-        this.posWrite = 0
-        this.fracXi1 = 0
-        this.fracYi1 = 0
-        this.intDelay = 0
-        this.fracDelay = 0
+        this.delayTime = 0;
+        this.posRead = 0;
+        this.posWrite = 0;
+        this.fracXi1 = 0;
+        this.fracYi1 = 0;
+        this.intDelay = 0;
+        this.fracDelay = 0;
 
         // Other properties
-        this.buffer = undefined;
-        this.bufferSize = undefined;
         this.a1 = undefined;
 
         // Save sample rate
         this.sampleRate = sampleRate;
-        this.maxDelayTime = optMaxDelayTime || this.maxDelayTime;
+        this.maxDelayTime = optMaxDelayTime || 1;
 
         this.bufferSize = this.maxDelayTime * this.sampleRate;
         // Check if the bufferSize is not an integer
@@ -43,8 +40,6 @@ class FractionalDelay {
         }
         // Create the internal buffer
         this.buffer = new Float32Array(this.bufferSize);
-
-        return this; // for chainability
     }
 
     /**
@@ -69,7 +64,7 @@ class FractionalDelay {
                 this.updateThiranCoefficient();
             }
         } else {
-            console.log("throw error...how?");
+            throw new Error("delayTime > maxDelayTime");
         }
     }
 

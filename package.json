@@ -4,24 +4,25 @@
   "version": "0.1.0",
   "description": "The Fractional Delay is a JavaScript library that implements a delay with a fractional delay",
   "main": "fractional-delay.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Arnau Julià <arnau.julia@gmail.com>",
   "license": "BSD-3",
   "repository": {
-  	"type" : "git",
-  	"url" : "https://github.com/Ircam-RnD/fractional-delay"
+    "type": "git",
+    "url": "https://github.com/Ircam-RnD/fractional-delay"
   },
   "devDependencies": {
+    "tac6": "git://github.com/ircam-rnd/tac6.git#master",
+    "chai": "^1.10.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "browserify": {
-    "transforms": ["es6ify"]
+    "transforms": [
+      "es6ify"
+    ]
   },
   "scripts": {
     "bundle": "browserify fractional-delay.es6.js > fractional-delay.js -s 'FractionalDelay' -d -t es6ify",
-    "watch": "nodemon -w fractional-delay.es6.js -x npm run bundle"
+    "watch": "nodemon -w fractional-delay.es6.js -x npm run bundle",
+    "test": "tac6"
   }
 }
