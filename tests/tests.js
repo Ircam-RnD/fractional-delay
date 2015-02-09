@@ -1,5 +1,4 @@
-var chai = require('chai');
-var assert = chai.assert;
+var assert = require('assert');
 var FractionalDelay = require('../fractional-delay.es6.js');
 
 describe("FractionalDelay tests", function() {
@@ -8,7 +7,7 @@ describe("FractionalDelay tests", function() {
         fd.setDelay(0.5);
     });
     it('should throw error when delay > maxDelayTime', function(){
-        assert.throw(function() { fd.setDelay(2); }, Error);
+        assert.throws(function() { fd.setDelay(2); }, Error);
     });
     it('should return delay', function(){
         var delay = 0.3
