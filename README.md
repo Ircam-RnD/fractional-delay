@@ -1,4 +1,4 @@
-## Fractional Delay library
+# Fractional Delay library
 
 > The Fractional Delay is a JavaScript library that implements a delay with a fractional delay.
 
@@ -21,63 +21,8 @@ The ▲ fractional delay is implemented as: y[n] = μ·x[n] + x[n - 1] - μ·y[n
 
 ###Demo
 
-A *non* working demo for this module can be found [here](https://ircam-rnd.github.io/fractional-delay/)
+A working demo for this module can be found [here](https://ircam-rnd.github.io/fractional-delay/) and in the `examples` folder.
 
-### Usage
-
-This library can be used, for instance, inside the Web Audio API:
-
-```html
-    <script src="/fractional-delay.min.js"></script>
-    <!-- https://github.com/Ircam-RnD/buffer-loader  We need a way to load and decode the HRTF files, so we use this lib -->
-    <script src="/examples/js/buffer-loader.js"></script>
-    <!-- https://github.com/Ircam-RnD/player - We use this player to play a sound -->
-    <script src="/examples/js/player.js"></script>
-```
-
-```js
-  // We need an audio context
-  var audioContext = new AudioContext();
-  var targetNode = audioContext.destination;
-  // Create Audio Nodes
-  var player = createPlayer();
-  var bufferLoader = createBufferLoader();
-  var scriptProcessor = audioContext.createScriptProcessor(1024, 1, 1);
-  // Connect Audio Nodes
-  player.connect(scriptProcessor);
-  scriptProcessor.connect(targetNode);
-
-  // Create biquad filter module
-  var sampleRate = 44100;
-  var maxDelay = 1;
-  var fractionalDelayNode = createFractionalDelay(sampleRate, maxDelay);
-  fractionalDelayNode.setDelay(0.255);
-
-
-  // Load player file
-  bufferLoader.load('/examples/snd/breakbeat.wav').then(function(buffer){
-    player.setBuffer(buffer);
-    player.enableLoop(true);
-    player.start();
-  })
-
-  // Process the data inside the scriptProcessor process
-  scriptProcessor.onaudioprocess = function(event){
-    // Get the input buffer
-    var inputBuffer = event.inputBuffer.getChannelData(0);
-    // Get the ouput buffer
-    var outputBuffer = event.outputBuffer.getChannelData(0);
-
-    // Process the data
-    var output = fractionalDelayNode.process(inputBuffer);
-    // Copy the output to the outputBuffer
-    for(var i = 0; i<inputBuffer.length; i++){
-      outputBuffer[i] = output[i];
-    }
-
-  }
-
-```
 
 ### API
 
