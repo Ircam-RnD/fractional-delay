@@ -13,9 +13,9 @@
   // Create an audio context
   var audioContext = new AudioContext();
   var targetNode = audioContext.destination;
-  var mediaElement = document.getElementById('source');
 
   // Create Audio Nodes
+  var mediaElement = document.getElementById('source');
   var player = audioContext.createMediaElementSource(mediaElement);
   var scriptProcessor = audioContext.createScriptProcessor(1024, 1, 1);
   // Create fractional delay
